@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="スレッドをまたいで値や例外を受け渡す">
+      <UniqueIdentifier>{abf8f62d-0d7d-4902-9d6d-8cbec5503a4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="処理が終わった時の処理を指定する">
+      <UniqueIdentifier>{87bf6db2-30c4-4646-ad1e-83127297d38c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="非同期処理をする">
+      <UniqueIdentifier>{b4b339dd-9f9d-455a-bd48-5f5a18271549}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Future.cpp">
+      <Filter>スレッドをまたいで値や例外を受け渡す</Filter>
+    </ClCompile>
+    <ClCompile Include="OnThreadEnd.cpp">
+      <Filter>処理が終わった時の処理を指定する</Filter>
+    </ClCompile>
+    <ClCompile Include="Async.cpp">
+      <Filter>非同期処理をする</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Future.h">
+      <Filter>スレッドをまたいで値や例外を受け渡す</Filter>
+    </ClInclude>
+    <ClInclude Include="OnThreadEnd.h">
+      <Filter>処理が終わった時の処理を指定する</Filter>
+    </ClInclude>
+    <ClInclude Include="Async.h">
+      <Filter>非同期処理をする</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

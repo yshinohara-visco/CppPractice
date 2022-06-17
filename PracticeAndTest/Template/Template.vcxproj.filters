@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Hide.cpp">
+      <Filter>継承を使ってテンプレートを隠す</Filter>
+    </ClCompile>
+    <ClCompile Include="Zittaika.cpp">
+      <Filter>宣言と定義を分ける\明示的実体化を用いる</Filter>
+    </ClCompile>
+    <ClCompile Include="TestZittaika.h">
+      <Filter>宣言と定義を分ける\明示的実体化を用いる</Filter>
+    </ClCompile>
+    <ClCompile Include="TestZittaika.cpp">
+      <Filter>宣言と定義を分ける\明示的実体化を用いる</Filter>
+    </ClCompile>
+    <ClCompile Include="ZittaikaWithMethod.cpp">
+      <Filter>宣言と定義を分ける\関数を使って実体化する</Filter>
+    </ClCompile>
+    <ClCompile Include="TestZWM.cpp">
+      <Filter>宣言と定義を分ける\関数を使って実体化する</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mini.h">
+      <Filter>最小テンプレートクラス</Filter>
+    </ClInclude>
+    <ClInclude Include="Hide.h">
+      <Filter>継承を使ってテンプレートを隠す</Filter>
+    </ClInclude>
+    <ClInclude Include="Zittaika.h">
+      <Filter>宣言と定義を分ける\明示的実体化を用いる</Filter>
+    </ClInclude>
+    <ClInclude Include="ZittaikaWithMethod.h">
+      <Filter>宣言と定義を分ける\関数を使って実体化する</Filter>
+    </ClInclude>
+    <ClInclude Include="TestZWM.h">
+      <Filter>宣言と定義を分ける\関数を使って実体化する</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="最小テンプレートクラス">
+      <UniqueIdentifier>{68fc0d71-5877-4289-aab5-260186454cfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="継承を使ってテンプレートを隠す">
+      <UniqueIdentifier>{7ae3ab8a-1250-475d-9000-0f55c9eb5ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="宣言と定義を分ける">
+      <UniqueIdentifier>{55f3e8f8-c5ad-4e17-9c71-e542ff54cf09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="宣言と定義を分ける\明示的実体化を用いる">
+      <UniqueIdentifier>{430ae550-08d2-40ba-97ac-ecec3232e60d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="宣言と定義を分ける\関数を使って実体化する">
+      <UniqueIdentifier>{9e91a782-9e5a-4785-8135-f153cbb37e42}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
