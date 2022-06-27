@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pimpl.cpp">
+      <Filter>private実装を隠す Pimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="ReduceInclude.cpp">
+      <Filter>ヘッダでのインクルードを減らす</Filter>
+    </ClCompile>
+    <ClCompile Include="Hoge.cpp">
+      <Filter>hoge</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="private実装を隠す Pimpl">
+      <UniqueIdentifier>{d50e32fe-de28-4652-b8ff-06f8516484c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダでのインクルードを減らす">
+      <UniqueIdentifier>{92423c0d-fe00-42fb-af17-a74f149b4609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hoge">
+      <UniqueIdentifier>{4ffc2bb3-6caf-417c-a148-aa61bd7258c3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Pimpl.h">
+      <Filter>private実装を隠す Pimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="ReduceInclude.h">
+      <Filter>ヘッダでのインクルードを減らす</Filter>
+    </ClInclude>
+    <ClInclude Include="Hoge1.h">
+      <Filter>hoge</Filter>
+    </ClInclude>
+    <ClInclude Include="Hoge2.h">
+      <Filter>hoge</Filter>
+    </ClInclude>
+    <ClInclude Include="Hoge3.h">
+      <Filter>hoge</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
