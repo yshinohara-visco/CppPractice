@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="AccessTime.cpp">
+      <Filter>生ポインタとのアクセス時間の差</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="生ポインタとのアクセス時間の差">
+      <UniqueIdentifier>{642e111b-0178-4fab-bb70-bdba036af462}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AccessTime.h">
+      <Filter>生ポインタとのアクセス時間の差</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
