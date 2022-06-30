@@ -18,4 +18,6 @@ namespace AccessTime
 	private:
 		std::chrono::system_clock::time_point m_start;
 	};
+
+	void Test();
 }
