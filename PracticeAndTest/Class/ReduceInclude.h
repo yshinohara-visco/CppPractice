@@ -41,9 +41,11 @@ namespace ReduceInclude
 		void PrintHoge2();
 		void PrintHoge3();
 
-		//関数の引数としてはポインタでなくても前方宣言でいいらしい
+		//関数の引数、返り値としてはポインタでなくても前方宣言でいいらしい
 		void Print( Hoge1 hoge1 );
 		void Print( Hoge2 hoge2 );
+		Hoge1 CreateHoge1();
+		Hoge2 CreateHoge2();
 		//void Print( Hoge3 hoge3 );
 
 	//確認用としてprivate変数とPimplを同居させている

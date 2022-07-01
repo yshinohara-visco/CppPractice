@@ -54,6 +54,17 @@ namespace ReduceInclude
 		hoge2.Print();
 	}
 
+	Hoge1 Printer::CreateHoge1()
+	{
+		return Hoge1();
+	}
+
+	Hoge2 Printer::CreateHoge2()
+	{
+		return Hoge2();
+	}
+
+
 	//void Printer::Print( Hoge3 hoge3 )
 	//{
 	//	hoge3.Print();
@@ -68,8 +79,8 @@ namespace ReduceInclude
 		printer.PrintHoge2();
 		printer.PrintHoge3();
 
-		Hoge1 hoge1;
-		Hoge2 hoge2;
+		Hoge1 hoge1 = printer.CreateHoge1();
+		Hoge2 hoge2 = printer.CreateHoge2();
 		printer.Print( hoge1 );
 		printer.Print( hoge2 );
 	}
