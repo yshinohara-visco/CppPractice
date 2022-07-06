@@ -10,6 +10,9 @@
     <Filter Include="非同期処理をする">
       <UniqueIdentifier>{b4b339dd-9f9d-455a-bd48-5f5a18271549}</UniqueIdentifier>
     </Filter>
+    <Filter Include="detachedスレッドの使い道は？">
+      <UniqueIdentifier>{45fed8d8-570f-453c-a0b3-ffbc71cbb774}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Future.cpp">
@@ -22,6 +25,9 @@
       <Filter>非同期処理をする</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Detached.cpp">
+      <Filter>detachedスレッドの使い道は？</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Future.h">
@@ -32,6 +38,9 @@
     </ClInclude>
     <ClInclude Include="Async.h">
       <Filter>非同期処理をする</Filter>
+    </ClInclude>
+    <ClInclude Include="Detached.h">
+      <Filter>detachedスレッドの使い道は？</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

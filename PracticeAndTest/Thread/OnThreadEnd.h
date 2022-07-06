@@ -35,4 +35,18 @@ namespace OnThreadEnd
 
 		void Worker( std::vector<int> vecData, std::function<void( std::string )> onEnd );
 	};
+
+	class DetachedThread
+	{
+	private:
+		DetachedThread( std::vector<int> vecData, std::function<void( std::string )> onEnd );
+
+	public:
+		static DetachedThread* Create( std::vector<int> vecData, std::function<void( std::string )> onEnd );
+
+	private:
+		std::thread m_thread;
+
+		void Worker( std::vector<int> vecData, std::function<void( std::string )> onEnd );
+	};
 }

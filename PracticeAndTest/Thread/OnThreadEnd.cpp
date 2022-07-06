@@ -35,6 +35,34 @@ namespace OnThreadEnd
 		mt1.Stop();
 		mt3.Stop();
 		mt2.Join();
+
+		std::cout << std::endl;
+
+		DetachedThread* dt1 = DetachedThread::Create( vecData1, OnEnd1 );
+		DetachedThread* dt2 = DetachedThread::Create( vecData2, OnEnd2 );
+		DetachedThread* dt3 = DetachedThread::Create( vecData3, OnEnd1 );
+		DetachedThread* dt4 = DetachedThread::Create( vecData4, OnEnd2 );
+
+		std::cout << "DetachedThread が終わる前に終了していいのか?" << std::endl;
+		//->dt1～dt4の結果は出力されている
+		std::this_thread::sleep_for( std::chrono::milliseconds( 1000 ) );
+		
+		//delete thisしても外から持つポインタの値はそのまま　そりゃそうか
+		auto isNull = [&](DetachedThread* pDt)
+		{
+			if (pDt)
+			{
+				std::cout << "まだある" << std::endl;
+			}
+			else
+			{
+				std::cout << "もうない" << std::endl;
+			}
+		};
+		isNull( dt1 );
+		isNull( dt2 );
+		isNull( dt3 );
+		isNull( dt4 );
 	}
 
 
@@ -105,4 +133,30 @@ namespace OnThreadEnd
 		std::lock_guard<std::mutex> lock( m_mtxStop );
 		return m_isStopped;
 	}
+
+	DetachedThread::DetachedThread( std::vector<int> vecData, std::function<void( std::string )> onEnd )
+	{
+		m_thread = std::thread( &DetachedThread::Worker, this, vecData, onEnd );
+		m_thread.detach();
+	}
+
+	DetachedThread* DetachedThread::Create( std::vector<int> vecData, std::function<void( std::string )> onEnd )
+	{
+		return new DetachedThread( vecData, onEnd );
+	}
+
+	void DetachedThread::Worker( std::vector<int> vecData, std::function<void( std::string )> onEnd )
+	{
+		int sum = 0;
+		for (int data : vecData)
+		{
+			std::this_thread::sleep_for( std::chrono::milliseconds( 200 ) );
+			sum += data;
+		}
+
+		onEnd( std::to_string( sum ) );
+
+		delete this;
+	}
+
 }
