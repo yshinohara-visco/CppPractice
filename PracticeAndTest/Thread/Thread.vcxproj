@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Async.h" />
+    <ClInclude Include="ConditionVariable.h" />
     <ClInclude Include="Detached.h" />
     <ClInclude Include="Future.h" />
     <ClInclude Include="OnThreadEnd.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Async.cpp" />
+    <ClCompile Include="ConditionVariable.cpp" />
     <ClCompile Include="Detached.cpp" />
     <ClCompile Include="Future.cpp" />
     <ClCompile Include="main.cpp" />

@@ -13,6 +13,9 @@
     <Filter Include="detachedスレッドの使い道は？">
       <UniqueIdentifier>{45fed8d8-570f-453c-a0b3-ffbc71cbb774}</UniqueIdentifier>
     </Filter>
+    <Filter Include="一時停止できるスレッド">
+      <UniqueIdentifier>{da1ade60-879c-4e29-94d4-ef92d408e047}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Future.cpp">
@@ -28,6 +31,9 @@
     <ClCompile Include="Detached.cpp">
       <Filter>detachedスレッドの使い道は？</Filter>
     </ClCompile>
+    <ClCompile Include="ConditionVariable.cpp">
+      <Filter>一時停止できるスレッド</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Future.h">
@@ -41,6 +47,9 @@
     </ClInclude>
     <ClInclude Include="Detached.h">
       <Filter>detachedスレッドの使い道は？</Filter>
+    </ClInclude>
+    <ClInclude Include="ConditionVariable.h">
+      <Filter>一時停止できるスレッド</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
