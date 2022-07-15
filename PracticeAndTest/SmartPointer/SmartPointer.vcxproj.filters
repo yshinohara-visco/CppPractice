@@ -5,15 +5,24 @@
     <ClCompile Include="AccessTime.cpp">
       <Filter>生ポインタとのアクセス時間の差</Filter>
     </ClCompile>
+    <ClCompile Include="ReturnUnique.cpp">
+      <Filter>所有権ごと返す</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="生ポインタとのアクセス時間の差">
       <UniqueIdentifier>{642e111b-0178-4fab-bb70-bdba036af462}</UniqueIdentifier>
     </Filter>
+    <Filter Include="所有権ごと返す">
+      <UniqueIdentifier>{1215efde-7b38-463c-909a-db50f87cad10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccessTime.h">
       <Filter>生ポインタとのアクセス時間の差</Filter>
+    </ClInclude>
+    <ClInclude Include="ReturnUnique.h">
+      <Filter>所有権ごと返す</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="AccessTime.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ReturnUnique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccessTime.h" />
+    <ClInclude Include="ReturnUnique.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TimeLib\TimeLib.vcxproj">
