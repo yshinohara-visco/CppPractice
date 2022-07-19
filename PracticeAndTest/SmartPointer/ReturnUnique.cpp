@@ -38,10 +38,7 @@ namespace ReturnUnique
 
 	std::unique_ptr<BigData> MakeDataU()
 	{
-		//make_uniqueを使うとコピーコンストラクタが動いていた なんだその裏切りは
-		//auto upData = std::make_unique<BigData>( BigData() );
-
-		auto upData = std::unique_ptr<BigData>( new BigData() );
+		auto upData = std::make_unique<BigData>();
 		return upData; //右辺値がどうのでunique_ptrをそのまま返すことができる
 	}
 
