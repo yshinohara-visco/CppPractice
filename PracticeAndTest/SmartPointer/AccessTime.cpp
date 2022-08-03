@@ -63,20 +63,48 @@ namespace AccessTime
 		TestClass t;
 		TestClass* pT = &t;
 
-		std::shared_ptr<TestClass> spT = std::make_shared<TestClass>( TestClass() );
-		std::unique_ptr<TestClass> upT = std::make_unique<TestClass>( TestClass() );
+		std::shared_ptr<TestClass> spT = std::make_shared<TestClass>();
+		std::unique_ptr<TestClass> upT = std::make_unique<TestClass>();
 
-		std::cout << "生ポインタの計測開始" << std::endl;
-		timetest( [&]() { pT->Add(); }, rawTime, vecRawTime );
-		std::cout << "Sharedポインタの計測開始" << std::endl;
-		timetest( [&]() { spT->Add(); }, shareTime, vecShareTime );
-		std::cout << "Uniqueポインタの計測開始" << std::endl;
-		timetest( [&]() { upT->Add(); }, uniqueTime, vecUniqueTime );
+		//テスト1
+		//std::cout << "生ポインタの計測開始" << std::endl;
+		//timetest( [&]() { pT->Add(); }, rawTime, vecRawTime );
+		//std::cout << "Sharedポインタの計測開始" << std::endl;
+		//timetest( [&]() { spT->Add(); }, shareTime, vecShareTime );
+		//std::cout << "Uniqueポインタの計測開始" << std::endl;
+		//timetest( [&]() { upT->Add(); }, uniqueTime, vecUniqueTime );
+
+		//std::cout <<
+		//	"Raw : " << rawTime << std::endl <<
+		//	"Shared : " << shareTime << std::endl <<
+		//	"Unique : " << uniqueTime << std::endl;
+
+		//テスト2
+		std::cout << "生ポインタの生成、削除の計測開始" << std::endl;
+		timetest( [&]() { 
+			TestClass* p = new TestClass();
+			TestClass* p2 = p;
+			delete p;
+			}, rawTime, vecRawTime );
+
+		std::cout << "Sharedポインタの生成、削除の計測開始" << std::endl;
+		timetest( [&]() {
+			auto sp = std::make_shared<TestClass>();
+			auto sp2 = sp;
+			}, shareTime, vecShareTime );
+
+		std::cout << "Uniqueポインタの生成、削除の計測開始" << std::endl;
+		timetest( [&]() {
+			auto up = std::make_unique<TestClass>();
+			auto up2 = std::move( up );
+			}, uniqueTime, vecUniqueTime );
 
 		std::cout <<
 			"Raw : " << rawTime << std::endl <<
 			"Shared : " << shareTime << std::endl <<
 			"Unique : " << uniqueTime << std::endl;
+
+
 
 		/*
 		100万回のアクセスを50回行った平均
@@ -90,6 +118,20 @@ namespace AccessTime
 		Raw : 1.3107
 		Shared : 1.31206
 		Unique : 1.30816
+
+
+		100万回の生成、コピー（move）、削除を行った平均
+		いかにもな結果が出た
+
+		Debug x64 の時の結果
+		Raw : 287.794
+		Shared : 812.228
+		Unique : 809.883
+
+		Release x64 の時の結果
+		Raw : 42.0543
+		Shared : 62.0003
+		Unique : 41.557
 		*/
 	}
 }

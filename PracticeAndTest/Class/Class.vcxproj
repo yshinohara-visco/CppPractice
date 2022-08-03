@@ -139,17 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EndOfConstract.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pimpl.cpp" />
     <ClCompile Include="ReduceInclude.cpp" />
     <ClCompile Include="Hoge.cpp" />
+    <ClCompile Include="TestValueClass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EndOfConstract.h" />
     <ClInclude Include="Hoge1.h" />
     <ClInclude Include="Hoge2.h" />
     <ClInclude Include="Pimpl.h" />
     <ClInclude Include="ReduceInclude.h" />
     <ClInclude Include="Hoge3.h" />
+    <ClInclude Include="TestValueClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

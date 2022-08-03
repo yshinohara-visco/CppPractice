@@ -11,6 +11,12 @@
     <ClCompile Include="Hoge.cpp">
       <Filter>hoge</Filter>
     </ClCompile>
+    <ClCompile Include="TestValueClass.cpp">
+      <Filter>値クラスという概念</Filter>
+    </ClCompile>
+    <ClCompile Include="EndOfConstract.cpp">
+      <Filter>親コンストラクタで実行される関数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="private実装を隠す Pimpl">
@@ -21,6 +27,12 @@
     </Filter>
     <Filter Include="hoge">
       <UniqueIdentifier>{4ffc2bb3-6caf-417c-a148-aa61bd7258c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="値クラスという概念">
+      <UniqueIdentifier>{79122f14-66e8-4d4a-839a-c9a22a727124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="親コンストラクタで実行される関数">
+      <UniqueIdentifier>{da61c1b0-28b5-42c5-8429-d9418e886cff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="Hoge3.h">
       <Filter>hoge</Filter>
+    </ClInclude>
+    <ClInclude Include="TestValueClass.h">
+      <Filter>値クラスという概念</Filter>
+    </ClInclude>
+    <ClInclude Include="EndOfConstract.h">
+      <Filter>親コンストラクタで実行される関数</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
