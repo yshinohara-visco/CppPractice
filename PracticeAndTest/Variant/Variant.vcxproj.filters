@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestVariant.cpp">
+      <Filter>何に使う？</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="何に使う？">
+      <UniqueIdentifier>{957f0117-247a-4905-b927-6a942d578c87}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TestVariant.h">
+      <Filter>何に使う？</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
