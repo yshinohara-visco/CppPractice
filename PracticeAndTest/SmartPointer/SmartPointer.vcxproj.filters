@@ -8,6 +8,9 @@
     <ClCompile Include="ReturnUnique.cpp">
       <Filter>所有権ごと返す</Filter>
     </ClCompile>
+    <ClCompile Include="ReleaseTest.cpp">
+      <Filter>解法の確認</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="生ポインタとのアクセス時間の差">
@@ -16,6 +19,9 @@
     <Filter Include="所有権ごと返す">
       <UniqueIdentifier>{1215efde-7b38-463c-909a-db50f87cad10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="解法の確認">
+      <UniqueIdentifier>{5793b905-c62d-41ca-8f72-710d5f209bd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccessTime.h">
@@ -23,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="ReturnUnique.h">
       <Filter>所有権ごと返す</Filter>
+    </ClInclude>
+    <ClInclude Include="ReleaseTest.h">
+      <Filter>解法の確認</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
