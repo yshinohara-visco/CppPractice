@@ -5,15 +5,24 @@
     <ClCompile Include="FunctionTest.cpp">
       <Filter>functionを試す</Filter>
     </ClCompile>
+    <ClCompile Include="FunctionArgument.cpp">
+      <Filter>関数を渡す</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="functionを試す">
       <UniqueIdentifier>{f0ac5fb2-5f3b-442e-a68f-a5f3a44d3e21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="関数を渡す">
+      <UniqueIdentifier>{913a4e45-2977-4a0b-b163-c4867b2424b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FunctionTest.h">
       <Filter>functionを試す</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctinoArgument.h">
+      <Filter>関数を渡す</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
