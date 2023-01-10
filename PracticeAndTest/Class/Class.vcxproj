@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cast.cpp" />
     <ClCompile Include="Destructor.cpp" />
     <ClCompile Include="EndOfConstract.cpp" />
     <ClCompile Include="main.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="TestValueClass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cast.h" />
     <ClInclude Include="Destructor.h" />
     <ClInclude Include="EndOfConstract.h" />
     <ClInclude Include="Hoge1.h" />

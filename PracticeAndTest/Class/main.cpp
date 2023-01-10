@@ -3,6 +3,7 @@
 #include "TestValueClass.h"
 #include "EndOfConstract.h"
 #include "Destructor.h"
+#include "Cast.h"
 
 int main()
 {
@@ -10,5 +11,6 @@ int main()
 	//ReduceInclude::Test();
 	//TestValueClass::TestMethod1();
 	//EndOfConstract::Test();
-	Destructor::Test();
+	//Destructor::Test();
+	Cast::Test();
 }

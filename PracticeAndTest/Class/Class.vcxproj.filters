@@ -20,6 +20,9 @@
     <ClCompile Include="Destructor.cpp">
       <Filter>実行されるデストラクタはどれか</Filter>
     </ClCompile>
+    <ClCompile Include="Cast.cpp">
+      <Filter>キャストのテスト</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="private実装を隠す Pimpl">
@@ -39,6 +42,9 @@
     </Filter>
     <Filter Include="実行されるデストラクタはどれか">
       <UniqueIdentifier>{83988fc1-b219-4077-b733-4e18eff02f0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="キャストのテスト">
+      <UniqueIdentifier>{d7d7fe34-db6b-4c05-921e-c346fcd479fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="Destructor.h">
       <Filter>実行されるデストラクタはどれか</Filter>
+    </ClInclude>
+    <ClInclude Include="Cast.h">
+      <Filter>キャストのテスト</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
