@@ -1,4 +1,6 @@
 #pragma once
+#include <memory>
+#include <iostream>
 
 namespace Cast
 {
@@ -8,20 +10,21 @@ namespace Cast
 		template <class T>
 		void Set( T value )
 		{
-			if (m_pointer)
-			{
-				delete m_pointer;
-			}
-
 			int size = sizeof( T );
-			m_pointer = new char[ size ];
-			*reinterpret_cast<T*>( m_pointer ) = value;
+			m_buffer = std::make_unique<char[]>( size );
+			*reinterpret_cast<T*>( m_buffer.get() ) = value;
 		}
 
 		template <class T>
 		void Get( T& value )
 		{
-			value = *reinterpret_cast<T*>(m_pointer);
+			if (!m_buffer)
+			{
+				std::cout << "buffer is null" << std::endl;
+				return;
+			}
+
+			value = *reinterpret_cast<T*>(m_buffer.get());
 		}
 
 		template <class T>
@@ -33,7 +36,7 @@ namespace Cast
 		}
 
 	private:
-		char* m_pointer = nullptr;
+		std::unique_ptr<char[]> m_buffer;
 	};
 
 	void Test();
