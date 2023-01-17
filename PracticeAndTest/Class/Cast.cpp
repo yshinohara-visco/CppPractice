@@ -1,6 +1,12 @@
 #include "Cast.h"
 #include <iostream>
 
+/*
+ポインタをreinterpret_castでキャストした時の例外の有無
+実際に変数がある番地を指すポインタを誤った型でキャストしても読み込む分には落ちないらしい
+nullptrをキャストすると、キャスト自体では落ちないがその結果のポインタにアクセスすると例外が出る
+*/
+
 namespace Cast
 {
 	void Test()
