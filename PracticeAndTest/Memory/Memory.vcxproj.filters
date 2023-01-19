@@ -4,16 +4,25 @@
     <Filter Include="確保したバッファに書き込む">
       <UniqueIdentifier>{92e3fdbd-bdf3-445b-986e-38decd54337b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ポインタの演算">
+      <UniqueIdentifier>{45352000-4d88-4ee0-b1fb-d4e2ac2d479b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BufferReadWrite.cpp">
       <Filter>確保したバッファに書き込む</Filter>
     </ClCompile>
+    <ClCompile Include="CalcPointer.cpp">
+      <Filter>ポインタの演算</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferReadWrite.h">
       <Filter>確保したバッファに書き込む</Filter>
+    </ClInclude>
+    <ClInclude Include="CalcPointer.h">
+      <Filter>ポインタの演算</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
