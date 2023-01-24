@@ -1,5 +1,6 @@
 #include "BufferReadWrite.h"
 #include <iostream>
+#include <float.h>
 
 namespace BufferReadWrite
 {
@@ -198,6 +199,76 @@ namespace BufferReadWrite
 			auto ptrWrite = holder->GetPointer();
 			ptrWrite.BreakPointForTest();
 			//ptrWrite.Append( int( 0 ) ); //—áŠO‚ğ“Š‚°‚é
+		}
+
+
+		//1byte‚ğ20‰ñ‘‚¢‚Ä20‰ü“Ç‚İ‚Ş
+		{
+			BufferHolder holder( 20 );
+
+			auto ptrWrite = holder.GetPointer();
+			int count = 0;
+			while (nullptr != ptrWrite.Append( unsigned char( count ) ))
+			{
+				std::cout << "Append : " << count << std::endl;
+				count += 1;
+			}
+
+			auto ptrRead = holder.GetPointer();
+			unsigned char value;
+			while (nullptr != ptrRead.Read2( value ))
+			{
+				std::cout << "Read : " << (int)value << std::endl;
+			}
+		}
+
+		std::cout << std::endl;
+
+		//4byte‚ğ3‰ñ‘‚¢‚Ä3‰ñ“Ç‚İ‚Ş
+		{
+			BufferHolder holder( 10 );
+
+			auto ptrWrite = holder.GetPointer();
+			auto appendShow = [&]( int32_t value )
+			{
+				if (nullptr != ptrWrite.Append2( value ))
+				{
+					std::cout << "Append2 : " << value << std::endl;
+				}
+			};
+			appendShow( 1 );
+			appendShow( 2 );
+			appendShow( 3 ); //‚Í‚İo‚é‚Ì‚Å’†’f
+
+			auto ptrRead = holder.GetPointer();
+			auto readShow = [&]()
+			{
+				int32_t value;
+				if (nullptr != ptrRead.Read2( value ))
+				{
+					std::cout << "Read2 : " << value << std::endl;
+				}
+			};
+			readShow();
+			readShow();
+			readShow(); //‚Í‚İo‚é‚Ì‚Å’†’f
+		}
+
+		{
+			BufferHolder holder( 8 * 1024 * 1024 );
+			auto ptrWrite = holder.GetPointer();
+			double value = 0;
+			unsigned int count = 0;
+
+			while (true)
+			{
+				while (nullptr != ptrWrite.Append(value++))
+				{
+				}
+				std::cout << "loop " << count++ << std::endl;
+				value = 0;
+				ptrWrite = holder.GetPointer();
+			}
 		}
 	}
 }

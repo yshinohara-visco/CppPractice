@@ -28,6 +28,31 @@ namespace BufferReadWrite
 		}
 
 		template <typename T>
+		char* Append2( const T& value )
+		{
+			return Append2( (void*)&value, sizeof( value ) );
+		}
+
+		char* Append2( void* src_data, const unsigned int data_size )
+		{
+			if ((m_point + data_size) > m_last)
+			{
+				std::cout << "Append2 over last-point:" << m_last - m_point << " size:" << data_size << std::endl;
+				return nullptr;
+			}
+
+			if (src_data)
+			{
+				const char* src_ptr = (char*)src_data;
+				for (unsigned int i = 0; i < data_size; i++)
+				{
+					*m_point++ = *src_ptr++;
+				}
+			}
+			return m_point;
+		}
+
+		template <typename T>
 		char* Read( T& value )
 		{
 			if ((m_point + sizeof( T )) > m_last)
@@ -41,9 +66,35 @@ namespace BufferReadWrite
 		}
 
 		template <typename T>
+		char* Read2( T& value )
+		{
+			return Read2( (void*)&value, sizeof( value ) );
+		}
+
+		char* Read2( void* dst_data, const unsigned int data_size )
+		{
+			if ((m_point + data_size) > m_last)
+			{
+				std::cout << "Read2 over last-point:" << m_last - m_point << " size:" << data_size << std::endl;
+				return nullptr;
+			}
+
+			if (dst_data)
+			{
+				char* dst_ptr = (char*)dst_data;
+				for (unsigned int i = 0; i < data_size; i++)
+				{
+					*dst_ptr++ = *m_point++;
+				}
+			}
+			return m_point;
+
+		}
+
+		template <typename T>
 		char* AppendForTest( T& value )
 		{
-			//範囲外でも書き込んでしまい例外を投げない
+			//範囲外でも書き込んでしまい例外を投げない  プロセスに割り当てられたメモリの範囲を超えたら例外になるはず
 			*reinterpret_cast<T*>(m_point) = value;
 			m_point += sizeof( T );
 			return m_point;
@@ -53,7 +104,7 @@ namespace BufferReadWrite
 		template <typename T>
 		char* ReadForTest( T& value )
 		{
-			//範囲外でも読み込めてしまい例外を投げない
+			//範囲外でも読み込めてしまい例外を投げない  プロセスに割り当てられたメモリの範囲を超えたら例外になるはず
 			value = *reinterpret_cast<T*>(m_point);
 			m_point += sizeof( T );
 			return m_point;
@@ -75,7 +126,7 @@ namespace BufferReadWrite
 	{
 	public:
 		BufferHolder( int size )
-			:m_size(size)
+			:m_size( size )
 		{
 			m_buffer = std::make_unique<char[]>( size );
 		}
@@ -89,9 +140,6 @@ namespace BufferReadWrite
 		std::unique_ptr<char[]> m_buffer;
 		int m_size;
 	};
-
-
-
 
 	void Test();
 }

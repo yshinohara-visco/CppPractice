@@ -1,9 +1,9 @@
 #include "BufferReadWrite.h"
 #include "CalcPointer.h"
 
-void main()
+int main()
 {
-	//BufferReadWrite::Test();
+	BufferReadWrite::Test();
 	//CalcPointer::Test1();
-	CalcPointer::Test2();
+	//CalcPointer::Test2();
 }
