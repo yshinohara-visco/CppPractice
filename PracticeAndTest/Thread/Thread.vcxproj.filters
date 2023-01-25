@@ -16,6 +16,9 @@
     <Filter Include="一時停止できるスレッド">
       <UniqueIdentifier>{da1ade60-879c-4e29-94d4-ef92d408e047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="スレッドで起きた例外">
+      <UniqueIdentifier>{b0dc554d-7f3e-4acd-8376-8c0f0ec023be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Future.cpp">
@@ -34,6 +37,9 @@
     <ClCompile Include="ConditionVariable.cpp">
       <Filter>一時停止できるスレッド</Filter>
     </ClCompile>
+    <ClCompile Include="ExceptionInThread.cpp">
+      <Filter>スレッドで起きた例外</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Future.h">
@@ -50,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="ConditionVariable.h">
       <Filter>一時停止できるスレッド</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceptionInThread.h">
+      <Filter>スレッドで起きた例外</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
