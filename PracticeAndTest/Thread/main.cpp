@@ -4,6 +4,7 @@
 #include "Detached.h"
 #include "ConditionVariable.h"
 #include "ExceptionInThread.h"
+#include "Atomic.h"
 
 #include <thread>
 #include <chrono>
@@ -24,5 +25,7 @@ int main()
 	//ExceptionInThread::Test1();
 	//ExceptionInThread::Test2();
 	//ExceptionInThread::Test3();
-	ExceptionInThread::Test4();
+	//ExceptionInThread::Test4();
+
+	Atomic::Test();
 }

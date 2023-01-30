@@ -19,6 +19,9 @@
     <Filter Include="スレッドで起きた例外">
       <UniqueIdentifier>{b0dc554d-7f3e-4acd-8376-8c0f0ec023be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="メモリバリア%28atomic%29">
+      <UniqueIdentifier>{488ab5bc-76d8-4bec-b71b-91f611348db7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Future.cpp">
@@ -40,6 +43,9 @@
     <ClCompile Include="ExceptionInThread.cpp">
       <Filter>スレッドで起きた例外</Filter>
     </ClCompile>
+    <ClCompile Include="Atomic.cpp">
+      <Filter>メモリバリア%28atomic%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Future.h">
@@ -59,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="ExceptionInThread.h">
       <Filter>スレッドで起きた例外</Filter>
+    </ClInclude>
+    <ClInclude Include="Atomic.h">
+      <Filter>メモリバリア%28atomic%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

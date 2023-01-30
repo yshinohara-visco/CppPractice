@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Async.h" />
+    <ClInclude Include="Atomic.h" />
     <ClInclude Include="ConditionVariable.h" />
     <ClInclude Include="Detached.h" />
     <ClInclude Include="ExceptionInThread.h" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Async.cpp" />
+    <ClCompile Include="Atomic.cpp" />
     <ClCompile Include="ConditionVariable.cpp" />
     <ClCompile Include="Detached.cpp" />
     <ClCompile Include="ExceptionInThread.cpp" />
