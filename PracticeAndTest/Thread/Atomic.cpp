@@ -1,4 +1,5 @@
 #include "Atomic.h"
+#include "../TimeLib/Timer.h"
 
 #include <thread>
 #include <atomic>
@@ -17,8 +18,29 @@ loadやstoreに引数を付けて実行順序に制限を付けることでメモリバリアを実現するとか
 
 namespace Atomic
 {
+
+	SpinLock::SpinLock()
+		:m_state( Unlocked )
+	{}
+
+	void SpinLock::lock()
+	{
+		while (m_state.exchange( Locked, std::memory_order_acquire ) == Locked)
+		{
+			//アンロックまで待機
+		}
+	}
+
+	void SpinLock::unlock()
+	{
+		m_state.store( Unlocked, std::memory_order_release );
+	}
+
+
 	void Test()
 	{
+		Time::Timer timer;
+
 		/*
 		Atomic 無しの場合
 		*/
@@ -33,6 +55,7 @@ namespace Atomic
 			}
 		};
 
+		timer.Start();
 		std::thread t1( funcAdd );
 		std::thread t2( funcAdd );
 		std::thread t3( funcAdd );
@@ -45,7 +68,8 @@ namespace Atomic
 		t5.join();
 
 		//countの値はtime*5にならない
-		std::cout << "count : " << count << std::endl;
+		std::cout << "count : " << count << std::endl
+			<< "  time : " << timer.Get() << "ms" << std::endl << std::endl;
 
 
 		/*
@@ -61,6 +85,7 @@ namespace Atomic
 			}
 		};
 
+		timer.Start();
 		std::thread ta1( funcAddAtomic );
 		std::thread ta2( funcAddAtomic );
 		std::thread ta3( funcAddAtomic );
@@ -73,7 +98,8 @@ namespace Atomic
 		ta5.join();
 
 		//countの値はtime*5になる
-		std::cout << "countAtomic : " << countAtomic << std::endl;
+		std::cout << "countAtomic : " << countAtomic << std::endl
+			<< "  time : " << timer.Get() << "ms" << std::endl << std::endl;
 
 		/*
 		mutexを使用する場合
@@ -87,11 +113,13 @@ namespace Atomic
 			{
 				//クリティカルセクションになり平行して実行されない
 				//!!atomicと比べるとかなり処理時間が長い!!
+				// と思ったけどリリースビルドしたら早くなった
 				std::lock_guard<std::mutex> lock( mtxCount );
 				countMutex++;
 			}
 		};
 
+		timer.Start();
 		std::thread tm1( funcAddMutex );
 		std::thread tm2( funcAddMutex );
 		std::thread tm3( funcAddMutex );
@@ -104,6 +132,69 @@ namespace Atomic
 		tm5.join();
 
 		//countの値はtime*5になる
-		std::cout << "countMutex : " << countMutex << std::endl;
+		std::cout << "countMutex : " << countMutex << std::endl
+			<< "  time : " << timer.Get() << "ms" << std::endl << std::endl;
+
+		/*
+		スピンロックを使用する場合
+		*/
+		int countSpin = 0;
+		SpinLock spinLock;
+
+		auto funcAddSpin = [&]()
+		{
+			for (size_t i = 0; i < time; i++)
+			{
+				//クリティカルセクションになり平行して実行されない
+				//!!mutexより早かったリ遅かったりする!! 実装間違えた？
+				// リリースビルドでもあまり変わらなかった
+				std::lock_guard<SpinLock> lock( spinLock );
+				countSpin++;
+			}
+		};
+
+		timer.Start();
+		std::thread ts1( funcAddSpin );
+		std::thread ts2( funcAddSpin );
+		std::thread ts3( funcAddSpin );
+		std::thread ts4( funcAddSpin );
+		std::thread ts5( funcAddSpin );
+		ts1.join();
+		ts2.join();
+		ts3.join();
+		ts4.join();
+		ts5.join();
+
+		std::cout << "countSpin : " << countSpin << std::endl
+			<< "  time : " << timer.Get() << "ms" << std::endl << std::endl;
 	}
+
+	/*
+	結果1 デバッグビルド
+	count : 14766312
+	  time : 334.601ms
+
+	countAtomic : 50000000
+	  time : 1215.12ms
+
+	countMutex : 50000000
+	  time : 9981.38ms
+
+	countSpin : 50000000
+	  time : 8408.98ms
+
+	結果2　リリースビルド
+	count : 23420771
+	  time : 183.685ms
+
+	countAtomic : 50000000
+	  time : 1193.79ms
+
+	countMutex : 50000000
+	  time : 1395.42ms
+
+	countSpin : 50000000
+	  time : 8990.61ms
+	*/
+
 }
