@@ -4,10 +4,16 @@
     <Filter Include="数値から文字列の変換">
       <UniqueIdentifier>{c63ad3c1-d2d6-48cf-aaa4-c73b08d90ba1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="プログラムのパスを取得">
+      <UniqueIdentifier>{bddcffa4-c09c-4904-b1bf-11ad54fb08ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NumToString.h">
       <Filter>数値から文字列の変換</Filter>
+    </ClInclude>
+    <ClInclude Include="GetModuelFilePath.h">
+      <Filter>プログラムのパスを取得</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -15,5 +21,8 @@
       <Filter>数値から文字列の変換</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="GetModuleFilePath.cpp">
+      <Filter>プログラムのパスを取得</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GetModuelFilePath.h" />
     <ClInclude Include="NumToString.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GetModuleFilePath.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NumToString.cpp" />
   </ItemGroup>
