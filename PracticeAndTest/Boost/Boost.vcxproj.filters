@@ -2,5 +2,18 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Accumulator.cpp">
+      <Filter>統計計算</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="統計計算">
+      <UniqueIdentifier>{34c4d763-b524-4e19-bd53-546f521ddd5b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Accumlator.h">
+      <Filter>統計計算</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

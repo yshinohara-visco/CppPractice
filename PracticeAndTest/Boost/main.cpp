@@ -1,8 +1,33 @@
+#include "Accumlator.h"
 
+#include "../TimeLib/Timer.h"
 
 #include <iostream>
+#include <random>
 
 int main()
 {
-    std::cout << "test hogeeee" << std::endl;
+    Accumulator::VarianceSample();
+
+    Time::Timer timer;
+
+    const int num = 10000000;
+    auto immediate = []() {
+        Accumulator::VarianceTestImmediate(num);
+        };
+    auto lazy = []() {
+        Accumulator::VarianceTestLazy(num);
+        };
+
+    auto timeI = Time::MeasureTime(immediate);
+    auto timeL = Time::MeasureTime(lazy);
+
+    /*
+    lazy‚Å‚àimmidiate‚Å‚àƒƒ‚ƒŠŽg—p—Ê‚Í‘‚¦‚È‚¢
+    •ªŽU‚Ì‚Ý‚Ìê‡Alazy‚Ì•û‚ª‘‚¢
+    tag::median‚ð’Ç‰Á‚·‚é‚Æ‹t“]‚·‚éê‡‚à‚ ‚Á‚½B
+    ac::tag::median‚ð’Ç‰Á‚·‚é‚ÆŒ‹\ˆ—ŽžŠÔ‚ªL‚Ñ‚éBƒƒ‚ƒŠ‚Í‘‚¦‚È‚©‚Á‚½B
+    */
+    std::cout << "timeI=" << timeI << " timeL=" << timeL << std::endl;
+
 }
